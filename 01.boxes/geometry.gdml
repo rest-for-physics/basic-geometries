@@ -1,0 +1,31 @@
+<solids>
+    <box name="WorldSolid" x="world_size" y="world_size" z="world_size" lunit="mm" />
+    <box name="boxSolid" x="boxSize" y="boxSize" z="boxSize" lunit="mm" />
+</solids>
+
+<structure>
+
+    <!-- {{{ Volumes definition (material and solid assignment) -->
+    <volume name="boxVolume">
+        <materialref ref="${GDML_GAS}"/>
+        <solidref ref="boxSolid"/>
+    </volume>
+    <!-- }}} -->
+
+    <!-- {{{ Physical volume definition (volume and position assignment) -->
+    <volume name="World">
+        <materialref ref="Air"/>
+        <solidref ref="WorldSolid"/>
+
+        <physvol name="box1">
+            <volumeref ref="boxVolume"/>
+            <position name="boxPosition_1" unit="mm" x="0" y="0" z="150"/>
+        </physvol>
+
+        <physvol name="box2">
+            <volumeref ref="boxVolume"/>
+            <position name="boxPosition_2" unit="mm" x="0" y="0" z="-150"/>
+        </physvol>
+    </volume>
+    <!-- }}} -->
+</structure>
