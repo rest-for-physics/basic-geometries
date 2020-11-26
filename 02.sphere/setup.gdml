@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<!-- ##VERSION TREX-DM Basic geometry Version 1.1 (${GDML_GAS} - ${GDML_PRESSURE}bar - Quencher: ${GDML_QUENCHER})## -->
+<!-- ##VERSION Sphere Basic geometry Version 1.0 (${GDML_GAS} - ${GDML_PRESSURE}bar - Quencher: ${GDML_QUENCHER})## -->
 
 <!DOCTYPE gdml [
 <!ENTITY geometry SYSTEM "geometry.gdml">
