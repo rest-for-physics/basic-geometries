@@ -26,7 +26,7 @@ export GDML_QUENCHER=0.02
 
 restRoot
 [0] TRestGDMLParser *g = new TRestGDMLParser();
-[1] TGeoManager *geo = g->GetGeoManager();
+[1] TGeoManager *geo = g->GetGeoManager("setup.gdml");
 [2] geo->GetTopVolume()->Draw("ogl");
 ```
 
