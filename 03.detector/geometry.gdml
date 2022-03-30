@@ -1,0 +1,44 @@
+<solids>
+    <box name="WorldSolid" x="world_size" y="world_size" z="world_size" lunit="mm" />
+    <box name="DetectorSolid" x="DetectorSize" y="DetectorSize" z="DetectorSize" lunit="mm" />
+    <box name="ShieldingSolidBox" x="ShieldingThickness+2*DetectorSize" y="ShieldingThickness+2*DetectorSize" z="ShieldingThickness+2*DetectorSize" lunit="mm" />
+
+    <subtraction name="ShieldingSolid">
+        <first ref="ShieldingSolidBox"/>
+        <second ref="DetectorSolid"/>
+    </subtraction>
+</solids>
+
+<structure>
+
+    <!-- {{{ Volumes definition (material and solid assignment) -->
+    <volume name="DetectorVolume">
+        <materialref ref="${GDML_GAS}"/>
+        <solidref ref="DetectorSolid"/>
+    </volume>
+
+    <volume name="ShieldingVolume">
+        <materialref ref="Lead"/>
+        <solidref ref="ShieldingSolid"/>
+    </volume>
+
+
+    <!-- }}} -->
+
+    <!-- {{{ Physical volume definition (volume and position assignment) -->
+    <volume name="World">
+        <materialref ref="Air"/>
+        <solidref ref="WorldSolid"/>
+
+        <physvol name="detector">
+            <volumeref ref="DetectorVolume"/>
+            <position name="DetectorPosition" unit="mm" x="0" y="0" z="0"/>
+        </physvol>
+
+        <physvol name="shielding">
+            <volumeref ref="ShieldingVolume"/>
+            <position name="ShieldingPosition" unit="mm" x="0" y="0" z="0"/>
+        </physvol>
+    </volume>
+    <!-- }}} -->
+</structure>

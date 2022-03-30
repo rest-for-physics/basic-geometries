@@ -6,6 +6,8 @@ This project hosts very simple but working geometries written in GDML and compat
 
 * **02.sphere**: A spherical volume contained in a stainlessteel vessel.
 
+* **03.detector**: A gaseous detector box surronded by a lead box.
+
 These files are splitted in a main `setup.gdml` file that defines the main parameters, and a `geometry.xml` where the solids, volumes and physical volumes are defined.
 
 
